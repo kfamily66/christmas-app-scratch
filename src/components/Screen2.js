@@ -1,27 +1,23 @@
 import React from "react";
-import preventScroll from "../js/preventScroll";
 
 class Screen2 extends React.Component {
   componentDidMount() {
     const history = this.props.history;
-    document.addEventListener("wheel", preventScroll);
     const scrollToNext = e => {
       document.removeEventListener("wheel", scrollToNext);
       if (e.deltaY > 0) {
-        setTimeout(() => history.push("/screen3"), 500);
+        setTimeout(() => history.push("/screen3"), 300);
       }
       if (e.deltaY < 0) {
-        setTimeout(() => history.push("/screen1"), 500);
+        setTimeout(() => history.push("/screen1"), 300);
       }
     };
     document.addEventListener("wheel", scrollToNext);
   }
-  componentWillUnmount() {
-    document.removeEventListener("wheel", preventScroll);
-  }
+
   render() {
     return (
-      <div>
+      <div className="section two">
         <h1>Screen2</h1>
       </div>
     );

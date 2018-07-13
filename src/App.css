@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body,
@@ -7,7 +9,9 @@ html {
   background-color: #f6f9fc;
   font-size: 18px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+
   height: 100vh;
+  width: 100vw;
 }
 
 h1 {
@@ -130,4 +134,142 @@ input:focus,
 
 .icon svg {
   margin-right: 7px;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  height: 10%;
+  width: 100%;
+  z-index: 1;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  height: 10%;
+  z-index: 1;
+}
+
+#root {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.screen div {
+  width: 100vw;
+  height: 100vh;
+}
+
+.section {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  padding: 10% 10%;
+  /* border: 1px solid red; */
+}
+
+.home {
+  background: green;
+  transform: translateY(0%);
+  transition: transform 5s easy-out;
+}
+.one {
+  background: yellow;
+}
+
+.two {
+  background: blue;
+}
+
+.three {
+  background: violet;
+}
+
+.four {
+  background: orange;
+}
+
+.shop {
+  background: firebrick;
+}
+
+/* .main-enter {
+  opacity: 0.01;
+}
+
+.main-enter.main-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.main-exit {
+  opacity: 1;
+}
+
+.main-exit.main-exit-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+} */
+
+.main-enter {
+  opacity: 0.01;
+}
+
+.main-enter.main-enter-active {
+  opacity: 1;
+  animation: enterAnimation 0.35s forwards 0s ease-in;
+  /* transition: opacity 500ms ease-in; */
+}
+
+@keyframes enterAnimation {
+  0% {
+    transform: rotate(0) translateY(100%);
+    opacity: 0;
+  }
+  35% {
+    transform: rotate(0) translateY(100%);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotate(0) translateY(100%);
+    opacity: 1;
+  }
+}
+.main-exit {
+  opacity: 1;
+  background: fuchsia;
+}
+
+.main-exit.main-exit-active {
+  opacity: 1;
+  background: red;
+  animation: exitAnimation 5s forwards 0s ease-out;
+  /* transition: opacity 3000ms ease-in; */
+}
+
+.exit {
+  transform: translateY(-100%);
+  transition: all 5s ease-out;
+}
+
+@keyframes exitAnimation {
+  0% {
+    /* transform: translateY(0%); */
+    opacity: 1;
+  }
+  100% {
+    /* transform: translateY(50%); */
+    opacity: 1;
+  }
 }

@@ -6,4 +6,6 @@ import AppRouter from "./router/router";
 
 library.add(faStroopwafel, faSpinner, faCheckCircle);
 
+document.querySelector("body").addEventListener("wheel", e => e.preventDefault());
+
 ReactDOM.render(<AppRouter />, document.getElementById("root"));
