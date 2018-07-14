@@ -15,7 +15,7 @@ html {
 }
 
 h1 {
-  color: #32325d;
+  color: white;
   font-weight: 400;
   line-height: 50px;
   font-size: 40px;
@@ -23,12 +23,25 @@ h1 {
   padding: 0;
 }
 
-.Checkout {
-  margin: 0;
-  max-width: 800px;
-  /* text-align: center; */
-  box-sizing: border-box;
-  padding: 0 5px;
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  background: transparent;
+  height: 10%;
+  width: 100%;
+  z-index: 9;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  background: transparent;
+  height: 10%;
+  z-index: 9;
 }
 
 label {
@@ -105,6 +118,14 @@ input:focus,
   padding: 0;
 }
 
+.Checkout {
+  margin: 0;
+  max-width: 800px;
+  /* text-align: center; */
+  box-sizing: border-box;
+  padding: 0 5px;
+}
+
 .container {
   width: 100%;
   /* max-width: 100rem; */
@@ -136,25 +157,6 @@ input:focus,
   margin-right: 7px;
 }
 
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: transparent;
-  height: 10%;
-  width: 100%;
-  z-index: 1;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: transparent;
-  height: 10%;
-  z-index: 1;
-}
-
 #root {
   overflow: hidden;
   width: 100vw;
@@ -174,102 +176,67 @@ footer {
 .section {
   height: 100%;
   width: 100%;
-  z-index: 1;
   padding: 10% 10%;
-  /* border: 1px solid red; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  transform: translateY(0%);
+  transition: transform 0.7s cubic-bezier(0.59, 0.01, 0.34, 0.99);
+  /* z-index: 2; */
 }
 
 .home {
   background: green;
   transform: translateY(0%);
-  transition: transform 5s easy-out;
+  background: url("../src/img/bg1.jpg");
+  background-size: cover;
+  z-index: 6;
 }
 .one {
-  background: yellow;
+  background: url("../src/img/bg2.jpg");
+  background-size: cover;
+  z-index: 5;
 }
 
 .two {
-  background: blue;
+  background: url("../src/img/bg3.jpg");
+  background-size: cover;
+  z-index: 4;
 }
 
 .three {
-  background: violet;
+  background: url("../src/img/bg4.jpg");
+  background-size: cover;
+  z-index: 3;
 }
 
 .four {
-  background: orange;
+  background: url("../src/img/bg5.jpg");
+  background-size: cover;
+  z-index: 2;
 }
 
 .shop {
-  background: firebrick;
+  background: url("../src/img/bg6.jpg");
+  background-size: cover;
+  z-index: 1;
 }
 
-/* .main-enter {
-  opacity: 0.01;
-}
-
-.main-enter.main-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.main-exit {
-  opacity: 1;
-}
-
-.main-exit.main-exit-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-} */
-
-.main-enter {
-  opacity: 0.01;
-}
-
-.main-enter.main-enter-active {
-  opacity: 1;
-  animation: enterAnimation 0.35s forwards 0s ease-in;
-  /* transition: opacity 500ms ease-in; */
-}
-
-@keyframes enterAnimation {
-  0% {
-    transform: rotate(0) translateY(100%);
-    opacity: 0;
-  }
-  35% {
-    transform: rotate(0) translateY(100%);
-    opacity: 0.25;
-  }
-  100% {
-    transform: rotate(0) translateY(100%);
-    opacity: 1;
-  }
-}
-.main-exit {
-  opacity: 1;
-  background: fuchsia;
-}
-
-.main-exit.main-exit-active {
-  opacity: 1;
-  background: red;
-  animation: exitAnimation 5s forwards 0s ease-out;
-  /* transition: opacity 3000ms ease-in; */
-}
-
-.exit {
+.go-up {
   transform: translateY(-100%);
-  transition: all 5s ease-out;
+  transition: transform 0.7s cubic-bezier(0.59, 0.01, 0.34, 0.99);
+  z-index: 8;
 }
 
-@keyframes exitAnimation {
-  0% {
-    /* transform: translateY(0%); */
-    opacity: 1;
-  }
-  100% {
-    /* transform: translateY(50%); */
-    opacity: 1;
-  }
+.active {
+  z-index: 7;
+}
+
+.ReactModalPortal {
+  z-index: 11;
+}
+
+.ReactModal__Overlay {
+  z-index: 99;
 }

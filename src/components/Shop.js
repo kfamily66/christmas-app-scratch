@@ -15,16 +15,7 @@ class Shop extends React.Component {
       }
     });
   };
-  componentDidMount() {
-    const history = this.props.history;
-    const scrollToNext = e => {
-      if (e.deltaY < 0) {
-        document.removeEventListener("wheel", scrollToNext);
-        setTimeout(() => history.push("/screen4"), 300);
-      }
-    };
-    document.addEventListener("wheel", scrollToNext);
-  }
+
   render() {
     return (
       <div className="section shop">
