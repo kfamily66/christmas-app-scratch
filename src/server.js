@@ -1,6 +1,6 @@
 const express = require("express");
-const secret = process.env.SK || require("../stripe_sk");
-const stripe = require("stripe")(secret.sk);
+const secret = process.env.SK || require("../stripe_sk").sk;
+const stripe = require("stripe")(secret);
 const path = require("path");
 
 const port = process.env.PORT || 9000;
@@ -26,7 +26,6 @@ app.post("/charge", async (req, res) => {
     });
     res.json({ status });
   } catch (err) {
-    console.log(err);
     res.status(500).end();
   }
 });
