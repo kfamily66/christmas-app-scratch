@@ -3,6 +3,7 @@ const secret = process.env.SK || require("../stripe_sk");
 const stripe = require("stripe")(secret.sk);
 const path = require("path");
 
+const port = process.env.PORT || 9000;
 const publicPath = path.join(__dirname, "..", "build");
 const app = express();
 
@@ -29,4 +30,4 @@ app.post("/charge", async (req, res) => {
   }
 });
 
-app.listen(9000, () => console.log("Listening on port 9000"));
+app.listen(port, () => console.log(`Listening on port ${port}`));
