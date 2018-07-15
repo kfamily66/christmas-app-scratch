@@ -1,13 +1,20 @@
-const app = require("express")();
-const secret = require("../stripe_sk");
+const express = require("express");
+const secret = process.env.SK || require("../stripe_sk");
 const stripe = require("stripe")(secret.sk);
+const path = require("path");
+
+const publicPath = path.join(__dirname, "..", "build");
+const app = express();
 
 app.use(require("body-parser").text());
+app.use(express.static(publicPath));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(publicPath, "index.html"));
+});
 app.post("/charge", async (req, res) => {
   try {
     const body = JSON.parse(req.body);
-    const token = body.token;
     let { status } = await stripe.charges.create({
       amount: 4500,
       currency: "gbp",

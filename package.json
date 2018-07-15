@@ -20,7 +20,9 @@
     "stripe": "^6.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node src/server.js",
+    "heroku-postbuild": "npm run build",
+    "start:dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
