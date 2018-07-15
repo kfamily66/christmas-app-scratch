@@ -21,3 +21,6 @@ stripe_sk.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#for heroku
+yarn.lock
