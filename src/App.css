@@ -14,6 +14,11 @@ html {
   width: 100vw;
 }
 
+/* Fix pull-to-refresh from Chrome */
+body {
+  overscroll-behavior: contain;
+}
+
 h1 {
   color: white;
   font-weight: 400;
@@ -239,4 +244,8 @@ input:focus,
 
 .ReactModal__Overlay {
   z-index: 99;
+}
+
+.touch * {
+  background: red;
 }

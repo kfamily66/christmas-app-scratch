@@ -10,59 +10,69 @@ import Screen3 from "../components/Screen3";
 import Screen4 from "../components/Screen4";
 
 const views = [".home", ".one", ".two", ".three", ".four", ".shop"];
+let clientY;
 
 class Wrapper extends React.Component {
   constructor(props) {
     super(props);
+
     document.addEventListener("wheel", this.scrollToNext);
+    document.addEventListener("touchstart", e => {
+      clientY = e.touches[0].clientY;
+    });
+    document.addEventListener("touchend", e => {
+      let deltaY;
+      deltaY = e.changedTouches[0].clientY - clientY;
+
+      if (deltaY < -40) {
+        this.changeViewToNext();
+      }
+      if (deltaY > 40) {
+        this.changeViewToPrev();
+      }
+    });
   }
+
   state = { current: 0 };
   scrollToNext = e => {
     this.state.current !== 0 && this.state.current !== 5 && document.removeEventListener("wheel", this.scrollToNext);
     if (e.deltaY > 0) {
-      if (this.state.current < 5) {
-        this.changeViewToNext();
-      }
+      this.changeViewToNext();
     }
     if (e.deltaY < 0) {
-      if (this.state.current > 0) {
-        this.changeViewToPrev();
-      }
+      this.changeViewToPrev();
     }
   };
   changeViewToNext = () => {
     const current = this.state.current;
-    // const prev = current - 1;
     const next = current + 1;
 
-    document.removeEventListener("wheel", this.scrollToNext);
+    if (current < 5) {
+      document.removeEventListener("wheel", this.scrollToNext);
+      document.querySelector(views[current]).classList.add("go-up");
+      document.querySelector(views[next]).classList.add("active");
+      document.querySelector(views[current]).classList.remove("active");
+      this.setState(() => ({ current: next }));
 
-    document.querySelector(views[current]).classList.add("go-up");
-    document.querySelector(views[next]).classList.add("active");
-    document.querySelector(views[current]).classList.remove("active");
-    this.setState(() => ({ current: next }));
-
-    setTimeout(() => {
-      // document.querySelector(views[prev]).classList.add("go-up");
-      document.addEventListener("wheel", this.scrollToNext);
-    }, 300);
+      setTimeout(() => {
+        document.addEventListener("wheel", this.scrollToNext);
+      }, 300);
+    }
   };
   changeViewToPrev = () => {
     const current = this.state.current;
     const prev = current - 1;
-    // const next = current + 1;
 
-    document.removeEventListener("wheel", this.scrollToNext);
-
-    // document.querySelector(views[current]).classList.add("go-down");
-    document.querySelector(views[prev]).classList.remove("go-up");
-    document.querySelector(views[prev]).classList.add("active");
-    document.querySelector(views[current]).classList.remove("active");
-    this.setState(() => ({ current: prev }));
-
-    setTimeout(() => {
-      document.addEventListener("wheel", this.scrollToNext);
-    }, 300);
+    if (current > 0) {
+      document.removeEventListener("wheel", this.scrollToNext);
+      document.querySelector(views[prev]).classList.remove("go-up");
+      document.querySelector(views[prev]).classList.add("active");
+      document.querySelector(views[current]).classList.remove("active");
+      this.setState(() => ({ current: prev }));
+      setTimeout(() => {
+        document.addEventListener("wheel", this.scrollToNext);
+      }, 300);
+    }
   };
   render() {
     return (
