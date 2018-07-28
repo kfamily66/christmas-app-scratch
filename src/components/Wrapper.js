@@ -35,7 +35,9 @@ class Wrapper extends React.Component {
 
   state = { current: 0 };
   scrollToNext = e => {
-    this.state.current !== 0 && this.state.current !== 5 && document.removeEventListener("wheel", this.scrollToNext);
+    this.state.current !== 0 &&
+      this.state.current !== 5 &&
+      document.removeEventListener("wheel", this.scrollToNext);
     if (e.deltaY > 0) {
       this.changeViewToNext();
     }
@@ -77,14 +79,14 @@ class Wrapper extends React.Component {
   render() {
     return (
       <div className="screen">
-        <Header />
+        <Header counter={this.state} />
         <Home />
         <Screen1 />
         <Screen2 />
         <Screen3 />
         <Screen4 />
         <Shop />
-        <Footer />
+        <Footer counter={this.state} />
       </div>
     );
   }

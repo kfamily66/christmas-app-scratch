@@ -4,9 +4,10 @@ class Home extends React.Component {
   render() {
     return (
       <div className="section home active">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam molestias sed nostrum delectus laborum quas!
-        </p>
+        <div className="container no-bg">
+          <h2>12324wgd</h2>
+          <p>Это первый!</p>
+        </div>
       </div>
     );
   }

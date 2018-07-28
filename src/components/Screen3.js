@@ -4,7 +4,9 @@ class Screen3 extends React.Component {
   render() {
     return (
       <div className="section three">
-        <h1>Screen3</h1>
+        <div className="container">
+          <h1>Screen3</h1>
+        </div>
       </div>
     );
   }
