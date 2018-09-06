@@ -8,11 +8,11 @@ const Item = props => (
     }}
   >
     <div className="shop__list-item">
-      <h2>
-        {props.item.name}
-        <span className="shop__list-item--price"> £{props.item.price}</span>
-      </h2>
-      <p>{props.item.parameters}</p>
+      <div className="shop__list-item--props">
+        <h2>{props.item.name}</h2>
+        <p>{props.item.parameters}</p>
+      </div>
+      <h2 className="shop__list-item--price"> £{props.item.price}</h2>
     </div>
   </li>
 );

@@ -2,7 +2,7 @@ import React from "react";
 
 const BasketItem = props => (
   <li className="basket__item" key={props.item[0]}>
-    <div className="basket__item--name">{props.items[props.item[0]].name}</div>
+    <div className="basket__item--name">{`${props.index + 1}. ${props.items[props.item[0]].name}`}</div>
 
     <div className="basket__item--quantity">
       <div

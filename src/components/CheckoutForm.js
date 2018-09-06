@@ -42,7 +42,7 @@ class CheckoutForm extends Component {
         </span>
       );
     } else {
-      btnText = "Send";
+      btnText = "Pay";
     }
     return (
       <div className="stripe-form">

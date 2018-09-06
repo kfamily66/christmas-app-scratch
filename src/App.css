@@ -55,6 +55,7 @@ a {
   height: 40px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .menuIcon {
   font-weight: 700;
@@ -81,7 +82,7 @@ header {
   background: transparent;
   height: 10%;
   width: 100%;
-  z-index: 8;
+  z-index: 10;
 }
 .goDown {
   padding: 3rem 3rem 0 3rem;
@@ -404,42 +405,9 @@ input:focus,
   margin-left: 12.5%;
 }
 .page__header {
-  /* position: absolute;
-  top: 0;
-  left: 0; */
-  /* margin: 20% 0 0 3em; */
   line-height: 70px;
 }
 
-.shop {
-  width: 80%;
-}
-.shop__list {
-  color: black;
-  width: 25%;
-}
-.shop__list-ul {
-  list-style-type: none;
-}
-.shop__list-item--price {
-  color: red;
-}
-.shop__details {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-}
-.shop__details-img {
-  background: url("../src/img/ab.jpg");
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position-y: bottom;
-}
-.shop__checkout {
-  width: 35%;
-  color: black;
-}
 .list__terms {
   display: flex;
   list-style: none;
@@ -559,6 +527,7 @@ input:focus,
   padding: 0.9em;
   margin-left: 20px;
   font-weight: 700;
+  cursor: pointer;
 }
 .bm-item-list a span {
   margin-left: 10px;
@@ -768,20 +737,62 @@ input:focus,
 }
 
 /* //////////////////////////////////////////////////////////// */
+.three .container {
+  padding: 2em 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.three .container .page__header {
+  width: 80%;
+}
+
 .shop__list {
   color: black;
   width: 25%;
+  padding: 10px;
 }
 .shop__list-ul {
   list-style-type: none;
 }
+
+.shop__list-ul li {
+  margin-top: 5px;
+}
+
 .shop__list-item--price {
   color: red;
+  font-style: italic;
 }
+
+.shop__list h4 span {
+  cursor: pointer;
+}
+
+.type--selected {
+  border-bottom: 2px solid red;
+}
+
+.shop__list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.shop__list-item h2 {
+  font-size: 1.1rem;
+}
+
+.shop__list-item p {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 .shop__details {
   width: 40%;
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .shop__details .row {
@@ -791,12 +802,16 @@ input:focus,
   margin-bottom: 0;
 }
 
+.shop__details h2 {
+  color: black;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
 .shop__details-img {
-  background: url("../src/img/ab.jpg");
   width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position-y: bottom;
+  object-fit: cover;
+  flex-grow: 1;
 }
 .shop__checkout {
   width: 35%;
@@ -804,8 +819,11 @@ input:focus,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 10px;
 }
-
+.shop__checkout h2 {
+  padding-bottom: 10px;
+}
 .center {
   text-align: center;
 }
@@ -821,20 +839,26 @@ input:focus,
   color: black;
   text-decoration: none;
 }
-
-ul .selected {
-  background-color: #cde2f7;
+.shop {
+  width: 90%;
 }
-
 .shop__list-ul li {
+  border-left: 4px solid white;
   cursor: pointer;
+  padding: 3px 6px;
 }
-
+.shop__list-ul .selected {
+  background-color: #e7e7e7;
+  border-left: 4px solid red;
+  box-sizing: border-box;
+  outline: none;
+}
 .basket {
-  height: 100%;
   padding: 10px;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
+  border: 1px dashed gray;
 }
 
 .basket__item {
@@ -862,11 +886,14 @@ ul .selected {
 
 .basket__item--remove {
   width: 20%;
+  font-size: 0.9rem;
+  color: rgb(204, 204, 204);
 }
 
 .basket__total {
   text-align: right;
   margin-top: auto;
+  margin-bottom: 10px;
 }
 
 .basket__bottom {
@@ -876,6 +903,14 @@ ul .selected {
 .basketItem__button {
   margin: 0 10px;
   cursor: pointer;
+}
+
+.basket__business {
+  font-style: italic;
+  font-weight: normal;
+  color: gray;
+  text-align: right;
+  margin-left: 30px;
 }
 
 .modal-overlay {
@@ -919,12 +954,19 @@ ul .selected {
 }
 
 #close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   align-self: flex-end;
-  /* width: 1px; */
+  width: auto;
   text-align: center;
   font-size: 24px;
   font-weight: 400;
   margin: 0;
+}
+
+.modal-header {
+  margin-left: calc(-50% - 4rem);
 }
 
 .small > * {
@@ -937,15 +979,31 @@ ul .selected {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: 30px;
 }
 
 .form-row input,
 .form-row .stripe-form {
   width: 70%;
+  padding-top: 10px;
 }
 
 .required::after {
   content: "*";
   color: red;
+}
+
+.three button {
+  margin-top: 20px;
+  margin-left: auto;
+  width: auto;
+}
+
+.basket__item--name {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.basket__item {
+  border-bottom: 1px solid rgb(221, 221, 221);
+  margin-bottom: 7px;
 }

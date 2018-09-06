@@ -71,7 +71,11 @@ class Screen3 extends React.Component {
           <h1 className="page__header">Shop</h1>
           <div className="shop row">
             <ShopItemsList items={this.items} selected={this.state.selected} clickHandler={this.onItemClick} />
-            <ItemDetails selected={this.state.selected} addToBasketHandler={this.addToBasketHandler} />
+            <ItemDetails
+              selected={this.state.selected}
+              item={this.items[this.state.selected - 1]}
+              addToBasketHandler={this.addToBasketHandler}
+            />
             <Basket
               items={this.items}
               basket={this.state.basket}

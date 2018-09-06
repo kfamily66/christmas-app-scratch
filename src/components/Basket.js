@@ -26,8 +26,9 @@ class Basket extends React.Component {
 
         <div className="basket">
           <ul>
-            {this.props.basketItems.map(item => (
+            {this.props.basketItems.map((item, index) => (
               <BasketItem
+                index={index}
                 item={item}
                 items={this.props.items}
                 key={item[0]}
@@ -41,9 +42,11 @@ class Basket extends React.Component {
             Order total: £
             {this.props.basketItems.reduce((acc, item, index) => acc + this.props.items[item[0]].price * item[1], 0)}
           </h3>
+          <h5 className="basket__business">
+            Are you business customer? Please use email ict@order.co.uk to contact with us
+          </h5>
         </div>
         <div className="basket__bottom">
-          <h4>Are you business customer? Please use email ict@order.co.uk to contact with us</h4>
           <button onClick={this.handleOpenModal}>Checkout</button>
         </div>
 
