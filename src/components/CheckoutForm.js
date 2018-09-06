@@ -8,8 +8,8 @@ class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {};
   }
-  state = {};
   async submit(ev) {
     this.setState(() => ({ complete: "pending" }));
     let { token } = await this.props.stripe.createToken({ name: "Name" });
@@ -18,10 +18,8 @@ class CheckoutForm extends Component {
       headers: { "Content-Type": "text/plain" },
       body: JSON.stringify({
         token: token.id,
-        address: this.props.customer.address,
-        type: "BARON",
-        count: 3,
-        email: this.props.customer.email
+        basket: this.props.basket,
+        ...this.props.customer
       })
     });
     if (response.ok) this.setState({ complete: true });

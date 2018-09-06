@@ -5,8 +5,18 @@ class Home extends React.Component {
     return (
       <div className="section home active">
         <div className="container no-bg">
-          <h2>12324wgd</h2>
-          <p>Это первый!</p>
+          <div className="moveRight">
+            <h1 className="page__header">
+              THE
+              <br /> CONTEMPORARY
+              <br /> CHRISTMAS
+              <br /> TREE
+            </h1>
+            <h3 className="moveRight--paragraph">
+              A modern, aesthetic and beautiful structural revision of the
+              traditional Christmas Tree
+            </h3>
+          </div>
         </div>
       </div>
     );
