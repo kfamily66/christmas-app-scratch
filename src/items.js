@@ -6,7 +6,15 @@ const items = [
   { id: 5, name: "Prince", price: "1000", parameters: "5'f / 1.52m, 8mm" },
   { id: 6, name: "Earl", price: "700", parameters: "4'f / 1.22m, 5mm" },
   { id: 7, name: "Baron", price: "325", parameters: "3'f / 0.91m, 5mm" },
-  { id: 8, name: "Knight", price: "225", parameters: "2'f / 0.61m, 5mm" }
+  { id: 8, name: "Knight", price: "225", parameters: "2'f / 0.61m, 5mm" },
+  { id: 9, name: "Empress", price: "4250", parameters: "9'10\"f / 3.0m, 10mm" },
+  { id: 10, name: "Tsarina", price: "3250", parameters: "9'f / 2.7m, 10mm" },
+  { id: 11, name: "Queen", price: "2250", parameters: "7'f / 2.14m, 8mm" },
+  { id: 12, name: "Duchess", price: "1750", parameters: "6'f / 1.83m, 8mm" },
+  { id: 13, name: "Princess", price: "1000", parameters: "5'f / 1.52m, 8mm" },
+  { id: 14, name: "Countess", price: "700", parameters: "4'f / 1.22m, 5mm" },
+  { id: 15, name: "Baroness", price: "325", parameters: "3'f / 0.91m, 5mm" },
+  { id: 16, name: "Dame", price: "225", parameters: "2'f / 0.61m, 5mm" }
 ];
 
 module.exports = {
